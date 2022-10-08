@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Poema del día de Francisco Álvarez Hidalgo</title>
+  <link rel="alternate" href="http://www.poesiadelmomento.com" />
+  <link rel="self" href="http://www.poesiadelmomento.com/poemadeldia.xml" />
+  <subtitle>Poema del día de Francisco Álvarez Hidalgo</subtitle>
+  <id>http://www.poesiadelmomento.com/</id>
+  <updated>{{updated}}</updated>
+  <dc:date>{{updated}}</dc:date>
+  <entry>
+    <title>Soneto del día: {{poem.poem_number}} - {{poem.title}}</title>
+    <link rel="alternate" href="http://www.poesiadelmomento.com/sonetosfah/sonetosfah{{poem.poem_number}}.html" />
+    <author>
+      <name>Francisco Álvarez Hidalgo</name>
+    </author>
+    <id>http://www.poesiadelmomento.com/sonetosfah/sonetosfah{{poem.poem_number}}.html</id>
+    <updated>{{updated}}</updated>
+    <published>{{updated}}</published>
+    <content type="html">Soneto del día: {{poem.poem_number}} - {{poem.title}}&lt;br&gt;
+&lt;br&gt;
+{{poem.content|e}}
+&lt;br&gt;
+---&lt;br&gt;
+Copyright © Francisco Álvarez Hidalgo&lt;br&gt;
+{{location}}, {{poem_date}}&lt;br&gt;
+&lt;br&gt;
+http://www.poesiadelmomento.com/sonetosfah/sonetosfah{{poem.poem_number}}.html&lt;br&gt;
+(publicado por Carmen Álvarez)</content>
+    <summary>Soneto del día: {{poem.poem_number}} - {{poem.title}}</summary>
+    <dc:creator>Francisco Álvarez Hidalgo</dc:creator>
+    <dc:date>{{updated}}</dc:date>
+  </entry>
+</feed>
