@@ -167,6 +167,7 @@ class Renderer:
         return {
             "poem_date": self._poem_date(poem),
             "updated": datetime.now(tz=pytz.UTC).isoformat(),
+            "content": poem.content.replace("\n", "<br>\n"),
             "poem": poem,
         }
 
