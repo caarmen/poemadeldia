@@ -6,7 +6,7 @@ This RSS feed is used in the facebook page for [Francisco Álvarez Hidalgo](http
 
 This script is open source, even though it's very specific and surely of limited interest to anybody else :)
 
-As of today (2022, the actual database of poems isn't open source. A small sample database of some "lorem ipsum" poem content is provided here so the script can be tested by anybody else who is so bored they're actually testing this.
+As of today (2022), the actual database of poems isn't open source. A small sample database of some "lorem ipsum" poem content is provided here so the script can be tested by anybody else who is so bored they're actually testing this.
 
 Pre-requisites:
 * Install Python
