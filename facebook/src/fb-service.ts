@@ -49,6 +49,25 @@ function createFbService(config: FbServiceConfig) {
       );
       return response.data.data[0].access_token;
     },
+
+    async postToPage(
+      fbPageId: string,
+      longLivedPageAccessToken: string,
+      message: string,
+    ) {
+      await axios.post(
+        `${config.baseUrl}/${fbPageId}/feed`,
+        {
+          message: message,
+          access_token: longLivedPageAccessToken,
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        },
+      );
+    },
   };
 }
 
