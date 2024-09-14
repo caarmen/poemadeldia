@@ -1,0 +1,30 @@
+name: Post today's poem to the Facebook page.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *' # run at 2 AM UTC
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    environment: facebook
+    defaults:
+      run:
+        working-directory: ./facebook
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Download db
+        env:
+          DL_URL: ${{secrets.DB_DL_URL}}
+          DL_USER: ${{secrets.DB_DL_USER}}
+          DL_PASSWD: ${{secrets.DB_DL_PASSWD}}
+        run: curl -u "${DL_USER}:${DL_PASSWD}" --output poems.db ${DL_URL}
+      - name: Post the poem to facebook
+        run: npx tsx src/post-poem.ts poems.db "${secrets.FB_LONG_LIVED_PAGE_ACCESS_TOKEN}000"
