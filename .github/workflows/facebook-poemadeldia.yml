@@ -27,4 +27,8 @@ jobs:
           DL_PASSWD: ${{secrets.DB_DL_PASSWD}}
         run: curl -u "${DL_USER}:${DL_PASSWD}" --output poems.db ${DL_URL}
       - name: Post the poem to facebook
-        run: npx tsx src/post-poem.ts poems.db "${secrets.FB_LONG_LIVED_PAGE_ACCESS_TOKEN}000"
+        env:
+          FB_PAGE_ID: ${{ vars.FB_PAGE_ID }}
+          FB_API_VERSION: ${{ vars.FB_API_VERSION }}
+          FB_LONG_LIVED_PAGE_ACCESS_TOKEN: ${{ secrets.FB_LONG_LIVED_PAGE_ACCESS_TOKEN }}
+        run: npx tsx src/post-poem.ts poems.db "${FB_LONG_LIVED_PAGE_ACCESS_TOKEN}"

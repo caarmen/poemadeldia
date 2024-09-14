@@ -17,17 +17,9 @@ export class PostPoemUseCase {
     const renderedPoem = await this.renderPoemUseCase.execute(randomPoem);
     console.log("rendered poem %o", renderedPoem);
 
-    try {
-      await this.facebookPostMessageToPageUseCase.execute(
-        process.env.FB_PAGE_ID!,
-        renderedPoem,
-      );
-    } catch (error: unknown) {
-      if (error instanceof GenericError) {
-        console.error("%o: %o", error.message, error.detail);
-      } else {
-        console.error("%o", error);
-      }
-    }
+    await this.facebookPostMessageToPageUseCase.execute(
+      process.env.FB_PAGE_ID!,
+      renderedPoem,
+    );
   }
 }
